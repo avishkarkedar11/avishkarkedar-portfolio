@@ -6,6 +6,7 @@ import Projects from "../components/Projects/Projects";
 import Education from "../components/Education/Education";
 import Certifications from "../components/Certifications/Certifications";
 import Contact from "../components/Contact/Contact";
+import Footer from "../components/Footer/Footer";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <Education />
       <Certifications />
       <Contact />
+      <Footer />
     </>
   );
 }

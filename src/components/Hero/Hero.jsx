@@ -9,10 +9,16 @@ import {
 import { SiLeetcode } from "react-icons/si";
 import { Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
-
+import resume from "../../assets/resume/Avishkar_Resume.pdf";
 import profileImage from "../../assets/images/profile.png";
 
 export default function Hero() {
+  const handleViewProjects = () => {
+  document.getElementById("projects")?.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
+};
   return (
     <section
       id="home"
@@ -69,13 +75,20 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-wrap items-center gap-5">
-            <button className="rounded-2xl bg-blue-600 px-8 py-4 font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-blue-700">
-              🚀 View My Projects
-            </button>
+            <button
+  onClick={handleViewProjects}
+  className="rounded-2xl bg-blue-600 px-8 py-4 font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-blue-700"
+>
+  🚀 View My Projects
+</button>
 
-            <button className="rounded-2xl border border-slate-300 bg-white px-8 py-4 font-semibold text-slate-900 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-              📄 Download Resume
-            </button>
+<a
+  href={resume}
+  download="Avishkar_Kedar_Resume.pdf"
+  className="rounded-2xl border border-slate-300 bg-white px-8 py-4 font-semibold text-slate-900 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+>
+  📄 Download Resume
+</a>
           </div>
 
           <div className="flex items-center gap-5 pt-3">
