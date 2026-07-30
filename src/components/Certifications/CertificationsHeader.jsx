@@ -1,62 +1,36 @@
 import { motion } from "framer-motion";
-import { HiOutlineAcademicCap } from "react-icons/hi2";
 
 export default function CertificationsHeader() {
   return (
-    <div className="mx-auto mb-16 max-w-3xl text-center">
-      {/* Badge */}
+    <div className="mx-auto mb-12 max-w-3xl text-center">
       <motion.div
         initial={{ opacity: 0, y: 15 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.4 }}
-        className="mb-5 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-5 py-2"
+        className="inline-flex items-center gap-2 rounded-full border border-slate-200 dark:border-slate-800 bg-slate-100/80 dark:bg-slate-900/80 px-3.5 py-1.5 text-xs font-bold uppercase tracking-widest text-slate-700 dark:text-slate-300"
       >
-        <HiOutlineAcademicCap className="h-5 w-5 text-blue-600" />
-
-        <span className="text-sm font-semibold tracking-wide text-blue-600">
-          Certifications
-        </span>
+        <span className="h-1.5 w-1.5 rounded-full bg-blue-600 dark:bg-blue-400"></span>
+        CERTIFICATIONS & EXPERIENCE
       </motion.div>
 
-      {/* Title */}
       <motion.h2
         initial={{ opacity: 0, y: 15 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ delay: 0.1, duration: 0.4 }}
-        className="text-4xl font-bold leading-tight text-slate-900 sm:text-5xl"
+        transition={{ delay: 0.1 }}
+        className="mt-3 font-['Sora'] text-3xl font-extrabold text-slate-900 dark:text-white sm:text-4xl lg:text-5xl"
       >
-        My{" "}
-        <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-          Certifications
-        </span>
+        Verified Credentials
       </motion.h2>
 
-      {/* Underline */}
-      <motion.div
-        initial={{ width: 0 }}
-        whileInView={{ width: "90px" }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.25, duration: 0.5 }}
-        className="mx-auto mt-4 h-1 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600"
-      />
-
-      {/* Description */}
       <motion.p
         initial={{ opacity: 0, y: 15 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ delay: 0.2, duration: 0.4 }}
-        className="mx-auto mt-8 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg"
+        transition={{ delay: 0.2 }}
+        className="mx-auto mt-4 max-w-2xl text-base text-slate-600 dark:text-slate-300 sm:text-lg"
       >
-        Professional certifications, workshops, internships, and virtual
-        experiences that have strengthened my expertise in
-        <span className="font-semibold text-slate-800">
-          {" "}
-          Artificial Intelligence, Data Science, Full Stack Development,
-        </span>{" "}
-        and modern software technologies.
+        Industry-recognized certifications and practical job simulations in AI, Machine Learning, Data Analytics, and Full Stack Engineering.
       </motion.p>
     </div>
   );

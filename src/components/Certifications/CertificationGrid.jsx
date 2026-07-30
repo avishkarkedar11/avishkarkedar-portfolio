@@ -30,19 +30,11 @@ export default function CertificationGrid({
 }) {
   return (
     <motion.div
-      layout
       variants={containerVariants}
       initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, amount: 0.15 }}
-    className="
-  grid
-  grid-cols-1
-  gap-6
-  md:grid-cols-2
-  lg:grid-cols-4
-  items-stretch
-"
+      animate="show"
+      layout
+      className="grid grid-cols-1 gap-6 md:grid-cols-2 items-stretch"
     >
       {certifications.map((certification) => (
         <motion.div

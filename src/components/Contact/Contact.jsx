@@ -6,7 +6,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="bg-slate-50 py-24 sm:py-28"
+      className="bg-white dark:bg-slate-950 py-16 sm:py-20 transition-colors duration-300"
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Section Header */}

@@ -1,122 +1,106 @@
 import { motion } from "framer-motion";
-import {
-  HiOutlineArrowTopRightOnSquare,
-  HiOutlineCalendarDays,
-  HiOutlineBuildingOffice2,
-} from "react-icons/hi2";
+import { HiOutlineEye, HiOutlineClock, HiCheckCircle } from "react-icons/hi2";
+import { FaBuilding } from "react-icons/fa6";
 
-const colorMap = {
-  blue: {
-    badge: "bg-blue-100 text-blue-700",
-    chip: "bg-blue-50 text-blue-700",
-  },
-  emerald: {
-    badge: "bg-emerald-100 text-emerald-700",
-    chip: "bg-emerald-50 text-emerald-700",
-  },
-  violet: {
-    badge: "bg-violet-100 text-violet-700",
-    chip: "bg-violet-50 text-violet-700",
-  },
-};
+export default function CertificationCard({ certification, onClick }) {
+  const renderIssuerLogo = (issuer) => {
+    const lower = issuer.toLowerCase();
+    let initial = "C";
+    let colorClass = "from-blue-600 to-indigo-600 text-white";
+    
+    if (lower.includes("deloitte")) {
+      initial = "D";
+      colorClass = "from-emerald-500 to-teal-600 text-white";
+    } else if (lower.includes("ibase")) {
+      initial = "iB";
+      colorClass = "from-blue-600 to-cyan-600 text-white";
+    } else if (lower.includes("zidio")) {
+      initial = "ZD";
+      colorClass = "from-purple-600 to-indigo-600 text-white";
+    } else if (lower.includes("athenura")) {
+      initial = "AT";
+      colorClass = "from-amber-500 to-orange-600 text-white";
+    }
 
-export default function CertificationCard({
-  certification,
-  onClick,
-}) {
-  const colors =
-    colorMap[certification.color] || colorMap.blue;
+    return (
+      <div className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-tr ${colorClass} font-extrabold text-sm shadow-md`}>
+        {initial}
+      </div>
+    );
+  };
 
   return (
     <motion.article
-  layout
-  whileHover={{ y: -8 }}
-  transition={{ duration: 0.25 }}
-  onClick={() => onClick?.(certification)}
-  className="group flex h-full w-full cursor-pointer flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:border-blue-200 hover:shadow-2xl"
->
-      {/* Certificate Image */}
-      <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
-        <img
-          src={certification.image}
-          alt={certification.title}
-          className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-        />
+      layout
+      whileHover={{ y: -6 }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
+      onClick={() => onClick?.(certification)}
+      className="group relative flex w-full cursor-pointer flex-col justify-between overflow-hidden rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900/90 p-6 sm:p-7 shadow-xs backdrop-blur-md transition-all duration-300 hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-xl dark:hover:shadow-blue-500/10"
+    >
+      <div className="space-y-4">
+        {/* Top Header Row */}
+        <div className="flex items-start justify-between gap-3">
+          <div className="flex items-center gap-3">
+            {renderIssuerLogo(certification.issuer)}
+            <div>
+              <h4 className="text-sm font-bold text-slate-800 dark:text-slate-200">
+                {certification.issuer}
+              </h4>
+              <p className="text-xs font-medium text-slate-500 dark:text-slate-400 flex items-center gap-1.5 mt-0.5">
+                <HiOutlineClock size={13} className="text-slate-400" />
+                <span>{certification.duration} • {certification.year}</span>
+              </p>
+            </div>
+          </div>
 
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-
-        <div className="absolute left-4 top-4 flex gap-2">
-          <span
-            className={`rounded-full px-3 py-1 text-xs font-semibold ${colors.badge}`}
-          >
+          {/* Type Badge */}
+          <span className="rounded-full bg-blue-50 dark:bg-blue-950/70 px-3 py-1 text-xs font-bold text-blue-600 dark:text-blue-400 border border-blue-100 dark:border-blue-900/50 shadow-xs shrink-0">
             {certification.type}
           </span>
+        </div>
 
-          {certification.featured && (
-            <span className="rounded-full bg-amber-400 px-3 py-1 text-xs font-semibold text-slate-900">
-              ⭐ Featured
+        {/* Title */}
+        <h3 className="font-['Sora'] text-lg font-bold text-slate-900 dark:text-white leading-snug group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+          {certification.title}
+        </h3>
+
+        {/* Description */}
+        <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed line-clamp-2">
+          {certification.description}
+        </p>
+
+        {/* Skill Chips */}
+        <div className="flex flex-wrap gap-1.5 pt-1">
+          {certification.skills.slice(0, 4).map((skill) => (
+            <span
+              key={skill}
+              className="rounded-lg bg-slate-100 dark:bg-slate-800/80 px-2.5 py-1 text-xs font-semibold text-slate-600 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700/60"
+            >
+              {skill}
+            </span>
+          ))}
+          {certification.skills.length > 4 && (
+            <span className="rounded-lg bg-slate-100 dark:bg-slate-800/80 px-2 py-1 text-xs font-semibold text-slate-500 dark:text-slate-400 border border-slate-200/60 dark:border-slate-700/60">
+              +{certification.skills.length - 4}
             </span>
           )}
         </div>
       </div>
 
-      {/* Content */}
-      <div className="flex flex-1 flex-col p-6">
-        <h3 className="line-clamp-2 text-xl font-bold text-slate-900 transition group-hover:text-blue-600">
-          {certification.title}
-        </h3>
+      {/* Footer Action */}
+      <div className="mt-6 flex items-center justify-between border-t border-slate-100 dark:border-slate-800/80 pt-4">
+        <span className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-600 dark:text-emerald-400">
+          <HiCheckCircle size={15} />
+          Verified Credential
+        </span>
 
-        {/* Issuer */}
-        <div className="mt-4 flex items-center gap-2 text-sm text-slate-600">
-          <HiOutlineBuildingOffice2 className="h-5 w-5 text-blue-600" />
-
-          <span>{certification.issuer}</span>
-        </div>
-
-        {/* Year */}
-        <div className="mt-2 flex items-center gap-2 text-sm text-slate-600">
-          <HiOutlineCalendarDays className="h-5 w-5 text-blue-600" />
-
-          <span>
-            {certification.duration} • {certification.year}
-          </span>
-        </div>
-
-        {/* Description */}
-        <p className="mt-4 line-clamp-3 text-[15px] leading-7 text-slate-600">
-          {certification.description}
-        </p>
-
-        {/* Skills */}
-        <div className="mt-5 flex flex-wrap gap-2">
-          {certification.skills.slice(0, 4).map((skill) => (
-            <span
-              key={skill}
-              className={`rounded-full px-3 py-1 text-xs font-medium ${colors.chip}`}
-            >
-              {skill}
-            </span>
-          ))}
-        </div>
-
-        {/* Footer */}
-        <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-5">
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              onClick?.(certification);
-            }}
-            className="flex items-center gap-2 text-sm font-semibold text-blue-600 transition hover:text-blue-700"
-          >
-            View Credential
-
-            <HiOutlineArrowTopRightOnSquare className="h-4 w-4" />
-          </button>
-
-          <span className="text-xs font-medium text-slate-400">
-            Click to view →
-          </span>
-        </div>
+        <button
+          type="button"
+          className="inline-flex items-center gap-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 px-3.5 py-1.5 text-xs font-bold text-slate-700 dark:text-slate-200 group-hover:bg-blue-600 group-hover:text-white dark:group-hover:bg-blue-600 dark:group-hover:text-white transition-all shadow-xs"
+        >
+          <HiOutlineEye size={14} />
+          View Details
+        </button>
       </div>
     </motion.article>
   );

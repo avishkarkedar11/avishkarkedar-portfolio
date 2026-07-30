@@ -1,44 +1,37 @@
 import { motion } from "framer-motion";
+import { HiOutlineArrowRight } from "react-icons/hi";
 
 export default function ProjectsHeader() {
   return (
-    <div className="mx-auto mb-12 max-w-3xl text-center">
-      {/* Badge */}
+    <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
       <motion.div
-        initial={{ opacity: 0, y: 15 }}
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.4 }}
-        className="mb-5 inline-flex items-center rounded-full border border-blue-100 bg-blue-50 px-4 py-2"
+        transition={{ duration: 0.5 }}
       >
-        <span className="text-sm font-semibold tracking-wide text-blue-600">
-          🚀 My Work
-        </span>
+        <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/60 bg-blue-50 dark:border-blue-900/60 dark:bg-blue-950/60 px-3.5 py-1.5 text-xs font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400">
+          <span className="h-1.5 w-1.5 rounded-full bg-blue-600 dark:bg-blue-400"></span>
+          PROJECTS
+        </div>
+
+        <h2 className="mt-3 font-['Sora'] text-3xl font-extrabold text-slate-900 dark:text-white sm:text-4xl lg:text-5xl">
+          Featured Projects
+        </h2>
       </motion.div>
 
-      {/* Title */}
-      <motion.h2
-        initial={{ opacity: 0, y: 15 }}
-        whileInView={{ opacity: 1, y: 0 }}
+      <motion.a
+        initial={{ opacity: 0, x: 20 }}
+        whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
-        transition={{ delay: 0.1, duration: 0.4 }}
-        className="text-4xl font-bold leading-tight text-slate-900 sm:text-5xl"
+        href="https://github.com/avishkarkedar11"
+        target="_blank"
+        rel="noreferrer"
+        className="inline-flex items-center gap-2 text-sm font-bold text-blue-600 dark:text-blue-400 transition-colors hover:text-blue-700 dark:hover:text-blue-300"
       >
-        Featured Projects
-      </motion.h2>
-
-      {/* Description */}
-      <motion.p
-        initial={{ opacity: 0, y: 15 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.2, duration: 0.4 }}
-        className="mx-auto mt-6 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg"
-      >
-        A selection of AI/ML, Data Science, Web, and Mobile projects that
-        showcase my skills in building scalable applications, solving
-        real-world problems, and creating modern user experiences.
-      </motion.p>
+        View All Projects on GitHub
+        <HiOutlineArrowRight size={16} />
+      </motion.a>
     </div>
   );
 }

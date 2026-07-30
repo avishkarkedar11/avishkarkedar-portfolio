@@ -1,15 +1,11 @@
 import { useMemo, useState } from "react";
-
-import { projects } from "../../data/projects";
-
+import { projects, projectCategories } from "../../data/projects";
 import ProjectsHeader from "./ProjectsHeader";
 import ProjectFilter from "./ProjectFilter";
 import ProjectGrid from "./ProjectGrid";
 import ProjectModal from "./ProjectModal";
 
 export default function Projects() {
-  const categories = ["All", "AI/ML", "Web", "Apps"];
-
   const [activeCategory, setActiveCategory] = useState("All");
   const [selectedProject, setSelectedProject] = useState(null);
 
@@ -34,7 +30,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="bg-slate-50 py-24 sm:py-28"
+      className="relative bg-slate-50/60 dark:bg-slate-950/60 py-16 sm:py-20 transition-colors duration-300"
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
@@ -43,7 +39,7 @@ export default function Projects() {
 
         {/* Filters */}
         <ProjectFilter
-          categories={categories}
+          categories={projectCategories}
           activeCategory={activeCategory}
           onCategoryChange={setActiveCategory}
         />

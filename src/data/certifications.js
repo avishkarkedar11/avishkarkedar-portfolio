@@ -1,8 +1,3 @@
-import ibaseMl from "../assets/certificates/ibase.jpg";
-import zidio from "../assets/certificates/zidio.jpg";
-import deloitte from "../assets/certificates/deloitte.jpg";
-import athenura from "../assets/certificates/athenura.jpg";
-
 export const certifications = [
   {
     id: 1,
@@ -11,7 +6,6 @@ export const certifications = [
     type: "Internship",
     duration: "1 Month",
     year: "2024",
-    image: ibaseMl,
     featured: true,
     description:
       "Successfully completed a Machine Learning with Python internship, gaining hands-on experience in data preprocessing, exploratory data analysis, model building, and evaluation using Python and Scikit-learn.",
@@ -34,7 +28,6 @@ export const certifications = [
     type: "Internship",
     duration: "3 Months",
     year: "2025",
-    image: zidio,
     featured: true,
     description:
       "Completed a Java Full Stack Development internship, building responsive web applications and working with Java, Spring Boot, MySQL, and frontend technologies.",
@@ -57,7 +50,6 @@ export const certifications = [
     type: "Job Simulation",
     duration: "Virtual Experience",
     year: "2026",
-    image: deloitte,
     featured: true,
     description:
       "Completed Deloitte's Data Analytics Job Simulation, performing practical tasks in data analysis and forensic technology while developing business-focused analytical skills.",
@@ -79,7 +71,6 @@ export const certifications = [
     type: "Internship",
     duration: "3 Months",
     year: "2026",
-    image: athenura,
     featured: true,
     description:
       "Completed a Data Science & Analytics internship, working on real-world data analysis, dashboard development, automation, business insights, and AI-driven solutions using modern analytics tools.",

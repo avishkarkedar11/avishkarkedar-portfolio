@@ -1,18 +1,14 @@
 export default function Logo() {
   return (
-    <a href="/" className="flex items-center gap-3 group">
-      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-blue-500 text-2xl font-black text-white shadow-lg transition duration-300 group-hover:scale-105">
+    <a href="#home" className="flex items-center gap-3 group">
+      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-purple-600 text-lg font-black text-white shadow-md shadow-blue-500/20 transition-all duration-300 group-hover:scale-105 group-hover:shadow-blue-500/40">
         AK
       </div>
 
-      <div>
-        <h1 className="text-2xl font-bold text-slate-900">
+      <div className="flex flex-col">
+        <span className="font-['Sora'] text-lg font-bold tracking-tight text-slate-900 dark:text-white transition-colors duration-300 group-hover:text-blue-600 dark:group-hover:text-blue-400">
           Avishkar Kedar
-        </h1>
-
-        <p className="text-xs uppercase tracking-widest text-slate-500">
-          AI Engineer
-        </p>
+        </span>
       </div>
     </a>
   );

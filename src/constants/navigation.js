@@ -30,6 +30,11 @@ const navigation = [
     href: "#education",
   },
   {
+    id: "certifications",
+    label: "Certifications",
+    href: "#certifications",
+  },
+  {
     id: "contact",
     label: "Contact",
     href: "#contact",
